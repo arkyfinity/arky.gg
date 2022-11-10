@@ -21,7 +21,7 @@ But to make this obsession worse, here's _my_ list.
 - Desk is an **[IKEA Bekant](https://ikea.com/gb/en/p/bekant-left-hand-corner-table-top-black-stained-ash-veneer-00366278/)** corner table so I have room for two monitors.
 - My wife was so nice to buy me a **[Secretlab Titan XL](https://secretlab.eu/collections/titan-xl-series)** chair. Before that I had an IKEA Marcus, but I kept getting a sore back and had to stretch multiple times a day just to keep it at bay. Now my back is very happy!
 
-PC is a home build: {style=margin-bottom: -8px}
+PC is a home build:
 
 - Motherboard: **[Gigabyte B550 Aorus Pro V2](https://gigabyte.com/Motherboard/B550-AORUS-PRO-V2-rev-10)**, mainly because it's the same as a X570 but I figured I didn't need that many PCIe 4 lanes yet.
 - CPU: **[AMD Ryzen 7 5800X](https://amd.com/en/products/cpu/amd-ryzen-7-5800x)** cooled by a **[Corsair H150i RGB PRO XT](https://www.corsair.com/eu/en/Categories/Products/Liquid-Cooling/iCUE-RGB-PRO-XT-Coolers/p/CW-9060045-WW)** AIO with **[3x Noctua A12x25 PWM](https://noctua.at/en/nf-a12x25-pwm)** fans.
