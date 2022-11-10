@@ -1,0 +1,20 @@
+<template>
+    <arky-header />
+    <main>
+        <router-view />
+    </main>
+</template>
+<script setup lang="ts">
+import { useHead } from '@vueuse/head';
+
+useHead({
+    meta: [
+        { property: 'author', content: 'Arkyfinity' },
+        { property: 'og:image', content: 'https://arky.gg/images/og_image.png' },
+        { property: 'og:type', content: 'website' },
+        { property: 'twitter:card', content: 'summary_large_image' },
+        { property: 'twitter:creator', content: '@arkyfinity' },
+        { property: 'twitter:site', content: '@arkyfinity' },
+    ],
+});
+</script>
