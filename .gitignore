@@ -1,0 +1,13 @@
+.DS_Store
+.vite-ssg-dist
+.vite-ssg-temp
+*.local
+.env
+dist
+dist-ssr
+node_modules
+.husky/
+.idea/
+*.log
+components.d.ts
+auto-imports.d.ts
