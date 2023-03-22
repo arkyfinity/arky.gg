@@ -9,7 +9,7 @@ import '@/styles/app.scss';
 
 declare module 'vue-router' {
     interface RouteMeta {
-        frontmatter: any;
+        frontmatter?: any;
     }
 };
 
