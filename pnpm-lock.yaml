@@ -41,7 +41,6 @@ specifiers:
   vite-plugin-inspect: ^0.7.18
   vite-plugin-pages: ^0.29.0
   vite-plugin-vue-markdown: ^0.22.4
-  vite-plugin-webfont-dl: ^3.6.1
   vite-ssg: ^0.22.1
   vite-svg-loader: ^4.0.0
   vue: ^3.2.47
@@ -66,14 +65,14 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
   '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
   '@vitejs/plugin-vue': 4.1.0_vite@4.2.1+vue@3.2.47
-  '@vue/eslint-config-prettier': 7.1.0_fm4dge7oa7adrk34hbwqwkeume
+  '@vue/eslint-config-prettier': 7.1.0_bpfktk52wn6m2x6u3idob4lxru
   '@vue/eslint-config-typescript': 11.0.2_cgv3ijhnmp44cwuqfct7aff4va
   axios: 1.3.4
   critters: 0.0.16
   cross-env: 7.0.3
   diacritics: 1.3.0
   eslint: 8.36.0
-  eslint-plugin-prettier: 4.2.1_fm4dge7oa7adrk34hbwqwkeume
+  eslint-plugin-prettier: 4.2.1_bpfktk52wn6m2x6u3idob4lxru
   eslint-plugin-vue: 9.9.0_eslint@8.36.0
   fs-extra: 11.1.1
   gray-matter: 4.0.3
@@ -84,7 +83,7 @@ devDependencies:
   markdown-it-link-attributes: 4.0.1
   markdown-it-shiki: 0.8.0
   pnpm: 7.30.0
-  prettier: 2.8.5
+  prettier: 2.8.6
   sass: 1.59.3
   typescript: 5.0.2
   unplugin-auto-import: 0.15.1_@vueuse+core@9.13.0
@@ -93,7 +92,6 @@ devDependencies:
   vite-plugin-inspect: 0.7.18_vite@4.2.1
   vite-plugin-pages: 0.29.0_vite@4.2.1
   vite-plugin-vue-markdown: 0.22.4_vite@4.2.1
-  vite-plugin-webfont-dl: 3.6.1_vite@4.2.1
   vite-ssg: 0.22.1_5yp5ffmexyoplwevzih2hx4gpy
   vite-svg-loader: 4.0.0
   vue-eslint-parser: 9.1.0_eslint@8.36.0
@@ -1127,7 +1125,7 @@ packages:
   /@vue/devtools-api/6.5.0:
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
 
-  /@vue/eslint-config-prettier/7.1.0_fm4dge7oa7adrk34hbwqwkeume:
+  /@vue/eslint-config-prettier/7.1.0_bpfktk52wn6m2x6u3idob4lxru:
     resolution: {integrity: sha512-Pv/lVr0bAzSIHLd9iz0KnvAr4GKyCEl+h52bc4e5yWuDVtLgFwycF7nrbWTAQAS+FU6q1geVd07lc6EWfJiWKQ==}
     peerDependencies:
       eslint: '>= 7.28.0'
@@ -1135,8 +1133,8 @@ packages:
     dependencies:
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0_eslint@8.36.0
-      eslint-plugin-prettier: 4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq
-      prettier: 2.8.5
+      eslint-plugin-prettier: 4.2.1_ose2zoovovx4ulolhifz3tfzx4
+      prettier: 2.8.6
     dev: true
 
   /@vue/eslint-config-typescript/11.0.2_cgv3ijhnmp44cwuqfct7aff4va:
@@ -1434,8 +1432,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001468
-      electron-to-chromium: 1.4.334
+      caniuse-lite: 1.0.30001469
+      electron-to-chromium: 1.4.335
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -1470,8 +1468,8 @@ packages:
       upper-case: 1.1.3
     dev: true
 
-  /caniuse-lite/1.0.30001468:
-    resolution: {integrity: sha512-zgAo8D5kbOyUcRAgSmgyuvBkjrGk5CGYG5TYgFdpQv+ywcyEpo1LOWoG8YmoflGnh+V+UsNuKYedsoYs0hzV5A==}
+  /caniuse-lite/1.0.30001469:
+    resolution: {integrity: sha512-Rcp7221ScNqQPP3W+lVOYDyjdR6dC+neEQCttoNr5bAyz54AboB4iwpnWgyi8P4YUsPybVzT4LgWiBbI3drL4g==}
     dev: true
 
   /chalk/2.4.2:
@@ -1514,13 +1512,6 @@ packages:
   /clean-css/4.2.4:
     resolution: {integrity: sha512-EJUDT7nDVFDvaQgAo2G/PJvxmp1o/c6iXLbswsBbUFXi1Nr+AjA2cKmfbKDMjMvzEe75g3P6JkaDDAKk96A85A==}
     engines: {node: '>= 4.0'}
-    dependencies:
-      source-map: 0.6.1
-    dev: true
-
-  /clean-css/5.3.2:
-    resolution: {integrity: sha512-JVJbM+f3d3Q704rF4bqQ5UUyTtuJ0JRKNbTKVEeujCCBoMdkEi+V+e8oktO9qGQNSvHrFTM6JZRXrUvGR1czww==}
-    engines: {node: '>= 10.0'}
     dependencies:
       source-map: 0.6.1
     dev: true
@@ -1860,8 +1851,8 @@ packages:
       domhandler: 5.0.3
     dev: true
 
-  /electron-to-chromium/1.4.334:
-    resolution: {integrity: sha512-laZ1odk+TRen6q0GeyQx/JEkpD3iSZT7ewopCpKqg9bTjP1l8XRfU3Bg20CFjNPZkp5+NDBl3iqd4o/kPO+Vew==}
+  /electron-to-chromium/1.4.335:
+    resolution: {integrity: sha512-l/eowQqTnrq3gu+WSrdfkhfNHnPgYqlKAwxz7MTOj6mom19vpEDHNXl6dxDxyTiYuhemydprKr/HCrHfgk+OfQ==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -2208,7 +2199,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_fm4dge7oa7adrk34hbwqwkeume:
+  /eslint-plugin-prettier/4.2.1_bpfktk52wn6m2x6u3idob4lxru:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2220,11 +2211,11 @@ packages:
         optional: true
     dependencies:
       eslint: 8.36.0
-      prettier: 2.8.5
+      prettier: 2.8.6
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq:
+  /eslint-plugin-prettier/4.2.1_ose2zoovovx4ulolhifz3tfzx4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2237,7 +2228,7 @@ packages:
     dependencies:
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0_eslint@8.36.0
-      prettier: 2.8.5
+      prettier: 2.8.6
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -3735,8 +3726,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.8.5:
-    resolution: {integrity: sha512-3gzuxrHbKUePRBB4ZeU08VNkUcqEHaUaouNt0m7LGP4Hti/NuB07C7PPTM/LkWqXoJYJn2McEo5+kxPNrtQkLQ==}
+  /prettier/2.8.6:
+    resolution: {integrity: sha512-mtuzdiBbHwPEgl7NxWlqOkithPyp4VN93V7VeHVWBF+ad3I5avc0RVDT4oImXQy9H/AqxA2NSQH8pSxHW6FYbQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -4481,20 +4472,6 @@ packages:
       - rollup
     dev: true
 
-  /vite-plugin-webfont-dl/3.6.1_vite@4.2.1:
-    resolution: {integrity: sha512-zU0y3kK2kjbP5L2a5OsCBwUbql1hXwcqDOOs4vI1WxRwdOeVU1Jvxxi3cWklaodxelfJqz33ae61m0FmXogcFA==}
-    peerDependencies:
-      vite: ^2 || ^3 || ^4
-    dependencies:
-      axios: 1.3.4
-      clean-css: 5.3.2
-      flat-cache: 3.0.4
-      picocolors: 1.0.0
-      vite: 4.2.1_y7rghahg7ddu72pko63vhsxa44
-    transitivePeerDependencies:
-      - debug
-    dev: true
-
   /vite-ssg/0.22.1_5yp5ffmexyoplwevzih2hx4gpy:
     resolution: {integrity: sha512-aiFbedElOR/amu0VPfWNj2oR7V9zX6oS4jzWEkOe5fJuZIV2+FnUyiupoyoo3lv3njgS2GENNpmxijN6tpJsTA==}
     engines: {node: '>=14.0.0'}
@@ -4519,7 +4496,7 @@ packages:
       html5parser: 2.0.2
       jsdom: 20.0.3
       kolorist: 1.7.0
-      prettier: 2.8.5
+      prettier: 2.8.6
       vite: 4.2.1_y7rghahg7ddu72pko63vhsxa44
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
