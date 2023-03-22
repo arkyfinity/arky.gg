@@ -13,7 +13,6 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Attrs from 'markdown-it-attrs';
 import anchor from 'markdown-it-anchor';
 import LinkAttributes from 'markdown-it-link-attributes';
-import webfontDownload from 'vite-plugin-webfont-dl';
 
 import { slugify } from './src/slugify';
 
@@ -53,10 +52,6 @@ export default defineConfig({
         Vue({
             include: [/\.vue$/, /\.md$/],
         }),
-
-        webfontDownload([
-            'https://fonts.bunny.net/css?family=inter:300,400,500,600|roboto-mono:300,500&display=swap',
-        ]),
 
         SvgLoader(),
 
