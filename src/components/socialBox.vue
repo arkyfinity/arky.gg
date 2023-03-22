@@ -25,9 +25,6 @@ defineProps<{
 @import '@/styles/mixins';
 
 .social-link {
-    grid-column: span 12;
-    text-decoration: none;
-
     @include hover-state() {
         .social-box {
             background-color: #20212b;
@@ -97,6 +94,11 @@ defineProps<{
 }
 </style>
 <style lang="scss">
+.social-link {
+    grid-column: span 12;
+    text-decoration: none;
+}
+
 .social-icon {
     svg {
         width: auto;
