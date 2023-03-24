@@ -15,10 +15,12 @@ export default {
 
     methods: {
         fetchSchedule() {
-            twitchapi.get(`/schedule?broadcaster_id=${import.meta.env.VITE_broadcasterId}&first=${this.numberOfDays ?? 10 }`)
+            twitchapi.get(`/schedule?broadcaster_id=${import.meta.env.VITE_broadcasterId}&first=10`)
             .then((data: any) => {
                 const calObjects = data.data.data.segments;
-                const calMap = calObjects.map((item: ScheduleItem) => item);
+                const calMap = calObjects.filter((item: ScheduleItem) => item.canceled_until === null)
+                    .slice(0,`${this.numberOfDays}`)
+                    .map((item: ScheduleItem) => item);
 
                 this.calendar = calMap;
             })
@@ -94,11 +96,15 @@ export default {
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(1, 2fr);
     grid-template-rows: 2fr;
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
     margin: 2rem 0 3rem;
+
+    @media (min-width: 992px) {
+        grid-template-columns: repeat(2, 2fr);
+    }
 
     .calendar-item {
         display: flex;
