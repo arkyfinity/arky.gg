@@ -89,6 +89,7 @@ const toggleMenu = () => {
                 </li>
             </ul>
         </nav>
+        <div class="overlay" @click="toggleMenu"></div>
     </header>
 </template>
 
@@ -317,6 +318,30 @@ header {
         }
     }
 }
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.55);
+    z-index: 2;
+
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
+
+.navigation.activated ~ .overlay {
+    display: block;
+
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
+
 </style>
 
 <style lang="scss">
