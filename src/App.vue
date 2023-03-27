@@ -1,13 +1,4 @@
-<template>
-    <arky-header />
-    <main>
-        <router-view />
-    </main>
-    <arky-footer />
-</template>
 <script setup lang="ts">
-import { useHead } from '@vueuse/head';
-
 useHead({
     meta: [
         { property: 'author', content: 'Arkyfinity' },
@@ -19,3 +10,11 @@ useHead({
     ],
 });
 </script>
+
+<template>
+    <arky-header />
+    <main>
+        <router-view />
+    </main>
+    <arky-footer />
+</template>
