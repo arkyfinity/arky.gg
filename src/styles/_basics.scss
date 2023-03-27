@@ -286,6 +286,18 @@ table {
     }
 }
 
+.docs-content {
+    > h1 {
+        margin: 0 0 .5rem;
+    }
+
+    .article-date {
+        font-size: .875rem;
+        font-weight: 300;
+        color: rgba($light, .5);
+    }
+}
+
 .article-info {
     margin: 0 0 2rem;
 
