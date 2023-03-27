@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 //
 </script>
+
 <template>
     <div class="factBox">
         <slot />
@@ -20,6 +21,12 @@
     @media (min-width: 992px) {
         max-width: calc(60% - 1rem);
         padding: 1rem 1.5rem;
+    }
+
+    &.variant {
+        @media (min-width: 992px) {
+            max-width: 100%;
+        }
     }
 }
 </style>
