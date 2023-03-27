@@ -1,0 +1,211 @@
+.build-header {
+    margin: 0 0 .5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.build-specialization {
+    margin: 0 0 2rem;
+}
+
+.build-alternative {
+    > p {
+        margin: 0 0 .5rem;
+    }
+
+    ul {
+        margin: 0 0 2rem;
+        padding: 0;
+        list-style: none;
+
+        li {
+            > * {
+                display: inline-flex;
+            }
+        }
+    }
+}
+
+.build-skills {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.f-skills-list {
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+    flex-basis: 100%;
+}
+
+.skills-list,
+.utilities-list {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: 992px) {
+        width: 100%;
+        max-width: calc(50% - 1rem);
+    }
+
+    li {
+        margin: 0 0 .5rem;
+    }
+}
+
+.gear-list {
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+
+    .gear-list-item {
+        margin: 0 .5rem 1.5rem 0;
+    }
+
+    .gear-description {
+        font-size: .875rem;
+        color: rgba($light, .5);
+    }
+}
+
+.gear-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 2rem;
+}
+
+.build-armor {
+    position: relative;
+
+    @media (min-width: 992px) {
+        width: 100%;
+        max-width: calc(33% - 1rem);
+        margin: 0 2rem 0 0;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -1rem;
+            width: 1px;
+            height: 100%;
+            background-color: rgba($light, .05);
+        }
+    }
+}
+
+.build-weapons {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 992px) {
+        width: 100%;
+        max-width: calc(66% - 1rem);
+    }
+
+    .weapons-list {
+        position: relative;
+        display: flex;
+        width: 100%;
+
+        .weapons-list-item {
+            margin: 0 1.5rem 1.5rem 0;
+
+            .weapon-description {
+                font-size: .875rem;
+                color: rgba($light, .5);
+            }
+        }
+
+        &.bottom {
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 100%;
+                width: 100%;
+                height: 1px;
+                background-color: rgba($light, .05);
+            }
+        }
+    }
+}
+
+.build-runes-infusions {
+    margin: 1.5rem 0 0;
+    display: flex;
+
+    @media (min-width: 992px) {
+        width: 100%;
+        max-width: calc(66% - 1rem);
+    }
+
+    .build-runes-infusions-item {
+        margin: 0 1.5rem 1.5rem 0;
+
+        .rune-infusion-description {
+            font-size: .875rem;
+            color: rgba($light, .5);
+        }
+    }
+}
+
+.build-description {
+    margin: 1rem 0 0;
+}
+
+.variants-list,
+.consumables-list {
+    margin: 0 0 3rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+        margin: 0 0 .5rem;
+
+        &.alt {
+            padding-left: 1rem;
+        }
+    }
+}
+
+span[data-armory-inline-text],
+div[data-armory-inline-text] {
+    display: inline-block;
+}
+
+span[data-armory-ids],
+div[data-armory-ids] {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.gw2a-tooltip-embed {
+    > div[class^="gw2a-"]:last-of-type {
+        div[class^="gw2a-"] {
+            span {
+                position: relative;
+                visibility: hidden;
+
+                &:after {
+                    visibility: visible;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "twitter.com/@arkyfinity • twitch.tv/arkyfinity";
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
