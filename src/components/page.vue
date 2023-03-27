@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import { useEventListener } from '@vueuse/core';
 import { formatDate } from '@/date';
 
-defineProps({
+const { frontmatter } = defineProps({
     frontmatter: {
         type: Object,
         required: true
