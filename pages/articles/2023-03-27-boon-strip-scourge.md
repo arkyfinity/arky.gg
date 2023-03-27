@@ -12,6 +12,7 @@ import scourgePage from '../../src/pages/scourgePage.vue';
 </script>
 
 # Boon Strip Scourge
+<p class="article-date">Written on March 27th, 2023</p>
 
 <factBox class="variant mb-2">
 
