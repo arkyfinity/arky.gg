@@ -1,7 +1,8 @@
 ---
-title: Boon Strip Scourge
+display: Boon Strip Scourge
+title: Boon Strip Scourge - arky.gg
 description: Guide to Arky's Boon Strip Scourge build
-date: 2023-03-27T17:11:00.000+02:00
+date: 2023-03-27T17:11:00.000+00:00
 published: true
 ---
 
@@ -9,6 +10,8 @@ published: true
 import factBox from '../../src/components/factBox.vue';
 import scourgePage from '../../src/pages/scourgePage.vue';
 </script>
+
+# Boon Strip Scourge
 
 <factBox class="variant mb-2">
 
