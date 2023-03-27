@@ -13,8 +13,6 @@ import scourgePage from '../../src/pages/scourgePage.vue';
 
 <factBox class="variant mb-2">
 
-# Boon Strip Scourge
-
 **Initial note**: _Tooltip values will be off (aka showing PvE values), since I'm piggy-backing off GW2Armory which essentially pings the GW2 API. The API rarely exposes the WvW and/or PvP splits, and if exposed, the way it's done isn't always clear. But without tooltips, the page seems a bit less alive._
 
 </factBox>
