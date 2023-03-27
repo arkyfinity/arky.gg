@@ -61,8 +61,8 @@ onMounted(() => {
 
 <template>
     <article ref="content">
-        <div v-if="frontmatter.display" class="article-info">
-            <h1>{{ frontmatter.display }}</h1>
+        <div v-if="frontmatter.display ?? frontmatter.title" class="article-info">
+            <h1>{{ frontmatter.display ?? frontmatter.title }}</h1>
             <p v-if="frontmatter.date" class="article-date">Written on {{ formatDate(frontmatter.date) }}</p>
         </div>
         <slot />
