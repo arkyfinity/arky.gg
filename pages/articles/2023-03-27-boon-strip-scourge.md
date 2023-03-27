@@ -1,6 +1,5 @@
 ---
-display: Boon Strip Scourge
-title: Boon Strip Scourge - arky.gg
+title: Boon Strip Scourge
 description: Guide to Arky's Boon Strip Scourge build
 date: 2023-03-27T17:11:00.000+02:00
 published: true
