@@ -6,7 +6,8 @@ import { formatDate } from '@/date';
 
 defineProps({
     frontmatter: {
-        type: Object
+        type: Object,
+        required: true
     },
 });
 
@@ -60,7 +61,7 @@ onMounted(() => {
 
 <template>
     <article ref="content">
-        <div v-if="frontmatter?.display" class="article-info">
+        <div v-if="frontmatter.display" class="article-info">
             <h1>{{ frontmatter.display }}</h1>
             <p v-if="frontmatter.date" class="article-date">Written on {{ formatDate(frontmatter.date) }}</p>
         </div>
