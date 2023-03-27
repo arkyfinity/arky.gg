@@ -1,17 +1,11 @@
+import '@/styles/app.scss';
+
 import autoRoutes from 'pages-generated';
 import { ViteSSG } from 'vite-ssg';
-import { RouterScrollBehavior } from 'vue-router';
 import dayjs from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat.js';
 import App from '@/App.vue';
 
-import '@/styles/app.scss';
-
-declare module 'vue-router' {
-    interface RouteMeta {
-        frontmatter?: any;
-    }
-};
 
 const routes = autoRoutes.map((route) => {
     return {
@@ -20,11 +14,11 @@ const routes = autoRoutes.map((route) => {
     };
 });
 
-const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
+const scrollBehavior = (to: any, from: any, savedPosition: any) => {
     if (savedPosition)
         return savedPosition;
     else
-        return { top: 0 }
+        return { top: 0 };
 };
 
 export const createApp = ViteSSG(
