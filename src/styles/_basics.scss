@@ -286,6 +286,20 @@ table {
     }
 }
 
+.article-info {
+    margin: 0 0 2rem;
+
+    h1 {
+        margin: 0 0 .5rem;
+    }
+
+    .article-date {
+        font-size: .875rem;
+        font-weight: 300;
+        color: rgba($light, .5);
+    }
+}
+
 .small-text {
     font-size: .75rem;
 }
@@ -304,6 +318,10 @@ table {
 
 .mb-0 {
     margin-bottom: 0;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
 }
 
 .mb-4 {
