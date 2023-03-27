@@ -1,4 +1,4 @@
-import { resolve, join } from 'path';
+import { basename, resolve, join } from 'path';
 import { defineConfig } from 'vite';
 import fs from 'fs-extra';
 import Pages from 'vite-plugin-pages';
@@ -96,6 +96,18 @@ export default defineConfig({
                     level: [1, 2, 3],
                 })
                 md.use(Attrs)
+            },
+
+            frontmatterPreprocess(frontmatter, options, id, defaults) {
+                (() => {
+                    if (!id.endsWith('.md')) return;
+
+                    const route = basename(id, '.md');
+                    if (route === 'index' || frontmatter.image || !frontmatter.title) return;
+                })();
+
+                const head = defaults(frontmatter, options);
+                return { head, frontmatter };
             },
         }),
 
