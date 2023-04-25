@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 import Logo from '@/icons/logo-light.svg';
 import BurgerIcon from '@/icons/burger.svg';
 import CloseIcon from '@/icons/close.svg';

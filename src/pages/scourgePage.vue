@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue';
+
     let armoryEmbed = document.createElement('script');
     armoryEmbed.setAttribute('src', 'https://unpkg.com/armory-embeds@^0.4.3/armory-embeds.js');
 
