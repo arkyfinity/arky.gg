@@ -35,6 +35,6 @@ description: List of Arky's gear
 
 - Microphone: [Røde Podcaster](https://rode.com/microphones/podcaster) on a [PSA1 studio boom arm](https://rode.com/accessories/stands/psa1) mounted with a [PSM1 shock mount](https://rode.com/accessories/psm1)
 - Deck: [Loupedeck Live](https://loupedeck.com/en/products/loupedeck-live)
-- Webcam: [Logitech C922 Pro Stream](https://logitech.com/en-us/products/webcams/c922-pro-stream-webcam.960-001087.html)
+- Webcam: [Sony Alpha ZV-E10](https://electronics.sony.com/imaging/interchangeable-lens-cameras/aps-c/p/ilczve10l-b)
 - Lights: front: 11 [Nanoleaf Shapes Hexagon](https://nanoleaf.me/en-EU/products/nanoleaf-shapes), back: [Govee Glide Lively](https://us.govee.com/collections/wall-lights/products/govee-glide-lively-wall-lights), RGB strip: [Govee RGBIC LED strip](https://us.govee.com/collections/indoor-strip-lights/products/rgbic-smart-led-strip-lights)
 {.gears-list}
