@@ -21,10 +21,6 @@ export default {
                 "description": "List of builds I'm currently running",
             },
             {
-                "command": "!buygw2",
-                "description": "A way to purchase Guild Wars 2 by using my affiliate link",
-            },
-            {
                 "command": "!cat",
                 "description": "catJAM",
             },
@@ -84,14 +80,6 @@ export default {
             {
                 "command": "!rank",
                 "description": "My current Guild Wars 2 PvP- and WvW rank for my main account",
-            },
-            {
-                "command": "!rankEU",
-                "description": "My current Guild Wars 2 PvP rank for my EU alt account",
-            },
-            {
-                "command": "!rankNA",
-                "description": "My current Guild Wars 2 PvP rank for my NA alt account",
             },
             {
                 "command": "!server",
