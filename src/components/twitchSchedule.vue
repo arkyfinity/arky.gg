@@ -1,70 +1,70 @@
-<script lang="ts">
+<script setup lang="ts">
+import { computed, onMounted, ref } from 'vue';
 import twitchapi from '@/helpers/twitchapi';
 import { ScheduleItem } from '@/types';
-import { formatDay, formatDayNumber, formatMonthName, formatTime, formatTimezone } from '@/date';
+import {
+    formatDay,
+    formatDayNumber,
+    formatMonthName,
+    formatTime,
+    formatTimezone,
+} from '@/helpers/date';
 
-export default {
-    props: {
-        numberOfDays: Number,
-        stream: Boolean,
-    },
+const props = defineProps<{
+    numberOfDays: number;
+    stream: boolean;
+}>();
 
-    data: () => ({
-        calendar: [] as ScheduleItem[],
-    }),
+const calendar = ref<ScheduleItem[]>([]);
 
-    methods: {
-        fetchSchedule() {
-            twitchapi.get(`/schedule?broadcaster_id=${import.meta.env.VITE_broadcasterId}&first=10`)
-            .then((data: any) => {
-                const calObjects = data.data.data.segments;
-                const calMap = calObjects.filter((item: ScheduleItem) => item.canceled_until === null)
-                    .slice(0,`${this.numberOfDays}`)
-                    .map((item: ScheduleItem) => item);
+const fetchSchedule = () => {
+    twitchapi.get(`/schedule?broadcaster_id=${import.meta.env.VITE_broadcasterId}&first=10`)
+        .then((data: any) => {
+            const calObjects = data.data.data.segments;
+            const calMap = calObjects.filter((item: ScheduleItem) => item.canceled_until === null)
+                .slice(0, `${props.numberOfDays}`)
+                .map((item: ScheduleItem) => item);
 
-                this.calendar = calMap;
-            })
-            .catch((error: any) => {
-                console.log('error', error);
-            });
-        },
-
-        formattedDay(dateString: string | Date): string {
-            return formatDay(dateString);
-        },
-
-        formattedNumber(dateString: string | Date): string {
-            return formatDayNumber(dateString);
-        },
-
-        formattedMonthName(dateString: string | Date): string {
-            return formatMonthName(dateString);
-        },
-
-        formattedTime(dateString: string | Date): string {
-            return formatTime(dateString);
-        },
-
-        formattedTimezone(dateString: string | Date): string {
-            return formatTimezone(dateString);
-        },
-    },
-
-    computed: {
-        isDev() {
-            return process.env.NODE_ENV !== 'production';
-        }
-    },
-
-    mounted() {
-        this.fetchSchedule();
-    }
+            calendar.value = calMap;
+        })
+        .catch((error: any) => {
+            // eslint-disable-next-line no-console
+            console.log('error', error);
+        });
 };
+
+const isDev = computed(() => {
+    return process.env.NODE_ENV !== 'production';
+});
+
+const formattedDay = (dateString: string | Date): string => {
+    return formatDay(dateString);
+};
+
+const formattedNumber = (dateString: string | Date): string => {
+    return formatDayNumber(dateString);
+};
+
+const formattedMonthName = (dateString: string | Date): string => {
+    return formatMonthName(dateString);
+};
+
+const formattedTime = (dateString: string | Date): string => {
+    return formatTime(dateString);
+};
+
+const formattedTimezone = (dateString: string | Date): string => {
+    return formatTimezone(dateString);
+};
+
+onMounted(() => {
+    fetchSchedule();
+});
 </script>
 
 <template>
     <div class="calendar-grid">
-        <div class="calendar-item" v-for="item in calendar">
+        <div v-for="item in calendar" :key="item.start_time" class="calendar-item">
             <div class="calendar-item-date">
                 <div class="calendar-item-date-day">{{ formattedDay(item.start_time) }}</div>
                 <div class="calendar-item-date-number">{{ formattedNumber(item.start_time) }}</div>
@@ -85,7 +85,7 @@ export default {
         </div>
     </div>
 
-    <div class="twitch-iframe" v-if="stream === true">
+    <div v-if="stream" class="twitch-iframe">
         <iframe :src="`https://player.twitch.tv?autoplay=true&amp;channel=arkyfinity&amp;muted=true&amp;parent=${isDev ? '127.0.0.1' : 'arky.gg'}&amp;theme=dark`" :parent="isDev ? '127.0.0.1' : 'arky.gg'" allowfullscreen scrolling="no" frameborder="0" />
     </div>
 </template>
