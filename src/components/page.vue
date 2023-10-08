@@ -1,24 +1,28 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { computed, ref, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { useEventListener } from '@vueuse/core';
-import { formatDate } from '@/date';
+import { formatDate } from '@/helpers/date';
 
 const { frontmatter } = defineProps({
     frontmatter: {
         type: Object,
-        required: true
+        required: true,
     },
 });
 
+const route = useRoute();
 const router = useRouter();
 const content = ref<HTMLDivElement>();
 
+const isArticle = computed(() => {
+    return route.path.includes('/articles/');
+});
+
 onMounted(() => {
     const navigate = () => {
-        if(location.hash) {
+        if (location.hash)
             document.querySelector(decodeURIComponent(location.hash))?.scrollIntoView({ behavior: 'smooth' });
-        }
     };
 
     const handleAnchors = (event: MouseEvent & { target: HTMLElement }) => {
@@ -61,7 +65,7 @@ onMounted(() => {
 
 <template>
     <article ref="content">
-        <div v-if="frontmatter.display ?? frontmatter.title" class="article-info">
+        <div v-if="isArticle && (frontmatter.display ?? frontmatter.title)" class="article-info">
             <h1>{{ frontmatter.display ?? frontmatter.title }}</h1>
             <p v-if="frontmatter.date" class="article-date">Written on {{ formatDate(frontmatter.date) }}</p>
         </div>
