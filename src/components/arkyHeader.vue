@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import Logo from '@/icons/logo-light.svg';
 import BurgerIcon from '@/icons/burger.svg';
 import CloseIcon from '@/icons/close.svg';
@@ -6,14 +7,12 @@ import GitHub from '@/icons/github.svg';
 import Twitch from '@/icons/twitch.svg';
 import Twitter from '@/icons/twitter.svg';
 
-let isOpen = ref(false);
+const isOpen = ref<boolean>(false);
 
 const toggleMenu = () => {
     isOpen.value = !isOpen.value;
-    if (window.innerWidth <= 992) {
-        document.body.style.overflow = document.body.style.overflow ? '' : 'hidden';
-    }
-}
+    if (window.innerWidth <= 992) document.body.style.overflow = document.body.style.overflow ? '' : 'hidden';
+};
 </script>
 
 <template>
@@ -34,14 +33,20 @@ const toggleMenu = () => {
                     <router-link to="/about" @click="toggleMenu()">About</router-link>
                 </li>
                 <li>
-                    <dropdown-menu title="Info" :class="{'router-link-active': $route.path.includes('/info/')}">
+                    <dropdown-menu
+                        title="Info"
+                        :class="{'router-link-active': $route.path.includes('/info/')}"
+                    >
                         <router-link to="/info/brand" @click="toggleMenu()">Brand</router-link>
                         <router-link to="/info/gear" @click="toggleMenu()">Gear</router-link>
                         <a href="https://streamlabs.com/arkyfinity" target="_blank" rel="noopener" title="Merch">Merch Store</a>
                     </dropdown-menu>
                 </li>
                 <li>
-                    <dropdown-menu title="Stream" :class="{'router-link-active': $route.path.includes('/stream/')}">
+                    <dropdown-menu
+                        title="Stream"
+                        :class="{'router-link-active': $route.path.includes('/stream/')}"
+                    >
                         <router-link to="/stream/schedule" @click="toggleMenu()">Schedule</router-link>
                         <router-link to="/stream/commands" @click="toggleMenu()">Twitch Bot</router-link>
                     </dropdown-menu>
@@ -56,16 +61,28 @@ const toggleMenu = () => {
 
             <ul class="links right">
                 <li>
-                    <router-link to="/articles" @click="toggleMenu()">Articles</router-link>
+                    <router-link
+                        to="/articles"
+                        :class="{'router-link-active': $route.path.includes('/info/')}"
+                        @click="toggleMenu()"
+                    >
+                        Articles
+                    </router-link>
                 </li>
                 <li>
-                    <dropdown-menu title="Guild Wars 2" :class="{'router-link-active': $route.path.includes('/gw2/')}">
+                    <dropdown-menu
+                        title="Guild Wars 2"
+                        :class="{'router-link-active': $route.path.includes('/gw2/')}"
+                    >
                         <router-link to="/gw2/builds" @click="toggleMenu()">Builds</router-link>
                         <a href="https://gw2.arky.gg" target="_blank" rel="noopener" title="GW2 server population">Server population</a>
                     </dropdown-menu>
                 </li>
                 <li>
-                    <dropdown-menu title="Ashes of Creation" :class="{'router-link-active': $route.path.includes('/aoc/')}">
+                    <dropdown-menu
+                        title="Ashes of Creation"
+                        :class="{'router-link-active': $route.path.includes('/aoc/')}"
+                    >
                         <router-link to="/aoc/info" @click="toggleMenu()">Info</router-link>
                         <router-link to="/aoc/arky-talks-ashes" @click="toggleMenu()">Arky talks Ashes</router-link>
                     </dropdown-menu>
@@ -142,7 +159,6 @@ header {
         @include hover-state() {
             color: darken($light, 15%);
         }
-
 
         @media (min-width: 992px) {
             display: none;
