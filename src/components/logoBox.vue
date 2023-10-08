@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { Theme } from '@/types';
 
 const props = defineProps<{
-    theme: string,
-    src: string,
-    dlName: string,
+    theme: string;
+    src: string;
+    dlName: string;
 }>();
 
 const themeCheck = computed((): Theme => {
@@ -90,4 +91,3 @@ const pngSrc = computed((): string => {
     background-position: 0 0, 45px 45px;
 }
 </style>
-
