@@ -4,28 +4,14 @@
         "module": "ESNext",
         "strict": true,
         "esModuleInterop": true,
-        "jsx": "preserve",
-        "importHelpers": true,
-        "incremental": true,
         "skipLibCheck": true,
         "moduleResolution": "node",
         "allowJs": true,
         "resolveJsonModule": true,
-        "noUnusedLocals": true,
-        "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,
-        "allowSyntheticDefaultImports": true,
-        "types": [
-            "vite/client",
-            "vite-plugin-pages/client",
-            "node",
-        ],
-        "lib": [
-            "ESNext",
-            "DOM",
-            "DOM.Iterable",
-            "ScriptHost"
-        ],
+        "jsx": "preserve",
+        "types": ["vite/client", "vite-plugin-pages/client"],
+        "lib": ["DOM", "ESNext"],
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
@@ -34,6 +20,5 @@
             "@/styles/*": ["./src/styles/*"]
         }
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
     "exclude": ["dist", "node_modules"]
 }
