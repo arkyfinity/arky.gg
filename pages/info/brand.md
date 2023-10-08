@@ -3,13 +3,6 @@ title: Brand - arky.gg
 description: Branding guide for Arkyfinity
 ---
 
-<script setup lang="ts">
-import logoBox from '../../src/components/logoBox.vue';
-import fontBox from '../../src/components/fontBox.vue';
-import colorBox from '../../src/components/colorBox.vue';
-import gradientBox from '../../src/components/gradientBox.vue';
-</script>
-
 # Branding guide for Arkyfinity
 
 This branding guide is made purely for personal use. It may serve as inspiration to others, however. As with other things on this website, the source code can be found on [GitHub](https://github.com/arkyfinity/arky.gg). If you copy anything, please add credits somewhere.
@@ -26,8 +19,8 @@ The *'finity* came as a result of me waiting for the "Arky" handle to be recycle
 I kindly ask your not to edit, change, distort, recolor, or in any way reconfigure the logos.
 
 <div class="rowGrid">
-<logo-box theme="dark" src="/assets/logo-light.svg" dl-name="Arkyfinity-Logo-Light"></logo-box>
-<logo-box theme="light" src="/assets/logo-dark.svg" dl-name="Arkyfinity-Logo-Dark"></logo-box>
+<LogoBox theme="dark" src="/assets/logo-light.svg" dl-name="Arkyfinity-Logo-Light" />
+<LogoBox theme="light" src="/assets/logo-dark.svg" dl-name="Arkyfinity-Logo-Dark" />
 </div>
 
 #### Alternate logos
@@ -35,8 +28,8 @@ I kindly ask your not to edit, change, distort, recolor, or in any way reconfigu
 When space is tight, the cut infinity symbol serves as a good replacement.
 
 <div class="rowGrid">
-<logo-box theme="dark" src="/assets/small-logo-light.svg" dl-name="Arkyfinity-Small-Logo-Light"></logo-box>
-<logo-box theme="light" src="/assets/small-logo-dark.svg" dl-name="Arkyfinity-Small-Logo-Dark"></logo-box>
+<LogoBox theme="dark" src="/assets/small-logo-light.svg" dl-name="Arkyfinity-Small-Logo-Light" />
+<LogoBox theme="light" src="/assets/small-logo-dark.svg" dl-name="Arkyfinity-Small-Logo-Dark" />
 </div>
 
 ## Fonts
@@ -46,8 +39,8 @@ As noted above, Inter serves as a great, free alternative to _Grotesk_-style fon
 Roboto Mono has long been my go-to _monospace_ font. As with all monospace fonts, it's about personal preference. Roboto Mono has, to me, the correct style i's, l's, and t's. It may seem like nit-picking but I spend most of my work day inside a code editor of some kind.
 
 <div class="rowGrid">
-<font-box font="Inter" weights="300, 400, 600"></font-box>
-<font-box font="Roboto Mono" weights="500"></font-box>
+<FontBox font="Inter" weights="300, 400, 600" />
+<FontBox font="Roboto Mono" weights="500" />
 </div>
 
 ## Colors
@@ -55,15 +48,15 @@ Roboto Mono has long been my go-to _monospace_ font. As with all monospace fonts
 To be completely honest, not a lot of color theory has been applied. I've mostly went for "this looks nice", and made contrasts to match. The gradient is inspired by colors used by Twitch.
 
 <div class="rowGrid">
-<color-box name="Raisin Black" hex="282a36"></color-box>
-<color-box name="Dark Raisin" hex="20212b"></color-box>
-<color-box name="White" hex="ffffff"></color-box>
-<color-box name="Medium Purple" hex="9384ff"></color-box>
-<color-box name="Sky Blue Crayola" hex="86ddf0"></color-box>
+<ColorBox name="Raisin Black" hex="282a36" />
+<ColorBox name="Dark Raisin" hex="20212b" />
+<ColorBox name="White" hex="ffffff" />
+<ColorBox name="Medium Purple" hex="9384ff" />
+<ColorBox name="Sky Blue Crayola" hex="86ddf0" />
 </div>
 
 #### Gradient
 
 <div class="rowGrid mb-0">
-<gradient-box name="Purple to Blue" from="9384ff" to="86ddf0" angle="120"></gradient-box>
+<GradientBox name="Purple to Blue" from="9384ff" to="86ddf0" angle="120" />
 </div>

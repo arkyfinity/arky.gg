@@ -3,17 +3,13 @@ title: Commands - arky.gg
 description: Arky's chat bot commands and information
 ---
 
-<script setup lang="ts">
-import commands from '../../src/components/botCommands.vue';
-</script>
-
 # Commands
 
-<commands />
+<BotCommands />
 
 <h3 class="h3" id="the-bot">The Bot</h3>
 
-**Arky_Bot** is custom-made with JavaScript, self-hosted as a Node.js-instance on a server in Helsinki, Finland. All functionality is maintained by me, and can be made available open-source on request should you need anything from it. However, it is currently not possible to add the bot to other channels, and I have no plans re-enable this functionality.
+**Arky_Bot** is custom-made with TypeScript, self-hosted as a Node.js-instance on a server in Helsinki, Finland. All functionality is maintained by me, and can be made available open-source on request should you need anything from it. However, it is currently not possible to add the bot to other channels, and I have no plans re-enable this functionality.
 
 The bot also works in conjunction with a Discord bot, that posts to a notifications channel once the stream goes live, done through a webhooks server running under the hood.
 

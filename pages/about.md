@@ -3,10 +3,6 @@ title: About Arky - arky.gg
 description: Short intro about Arky
 ---
 
-<script setup lang="ts">
-import factBox from '../src/components/factBox.vue';
-</script>
-
 # About Arky
 
 <div class="cols">
@@ -29,13 +25,13 @@ As mentioned, I live in Denmark with my wife and two girls. I work as a web deve
 
 <div class="col-bottom">
 
-<factBox>
+<FactBox>
 
 \* = **WvW**, short for **World vs World**, a server vs server game mode on giant battlefields with camps, towers, and keeps to capture/defend to accumulate more points. Part of this game mode also involves solo roaming.
 
 \*\* = **PvP**, short for **Player vs Player**, and is a normalized, classic arena-like conquest-based game mode with teams at the size of 5 battling each other for points. Wins and losses are reflected on a ladder and are split in seasons, with mini seasons of 3v3 or 2v2 team death match game modes in between seasons.
 
-</factBox>
+</FactBox>
 
 </div>
 </div>
