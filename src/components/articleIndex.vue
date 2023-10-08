@@ -1,22 +1,22 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { formatDate } from '@/date';
+import { formatDate } from '@/helpers/date';
 import { Post } from '@/types';
 
 const props = defineProps<{
-    type?: string,
-    posts?: Post[],
+    type?: string;
+    posts?: Post[];
     showPosts?: number;
 }>();
 
 const router = useRouter();
 const routes: Post[] = router.getRoutes()
-    .filter(i => i.path.startsWith('/articles') && i.meta.frontmatter.date && i.meta.frontmatter.published === true)
+    .filter((i) => i.path.startsWith('/articles') && i.meta.frontmatter.date && i.meta.frontmatter.published === true)
     .sort((a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
-    .filter(i => !i.path.endsWith('.html') && i.meta.frontmatter.type === props.type)
+    .filter((i) => !i.path.endsWith('.html') && i.meta.frontmatter.type === props.type)
     .slice(0, props.showPosts ?? props.posts?.length)
-    .map(i  => ({
+    .map((i) => ({
         path: i.path,
         title: i.meta.frontmatter.display,
         date: i.meta.frontmatter.date,
