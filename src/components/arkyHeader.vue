@@ -63,7 +63,7 @@ const toggleMenu = () => {
                 <li>
                     <router-link
                         to="/articles"
-                        :class="{'router-link-active': $route.path.includes('/info/')}"
+                        :class="{'router-link-active': $route.path.includes('/articles/')}"
                         @click="toggleMenu()"
                     >
                         Articles
