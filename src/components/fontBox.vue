@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 
 const props = defineProps<{
-    font: string,
-    weights: string,
+    font: string;
+    weights: string;
 }>();
 
 const fontName = computed((): string => {
@@ -17,8 +17,8 @@ const fontWeights = computed((): string => {
 
 <template>
     <div class="font-box" :style="{fontFamily: fontName}">
-        <div class="font-name">{{fontName}}</div>
-        <div class="font-weights">Weights: {{fontWeights}}</div>
+        <div class="font-name">{{ fontName }}</div>
+        <div class="font-weights">Weights: {{ fontWeights }}</div>
         <div class="font-example">Almost before we knew it, we had left the ground.</div>
     </div>
 </template>
