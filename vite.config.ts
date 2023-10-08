@@ -4,19 +4,24 @@ import fs from 'fs-extra';
 import Pages from 'vite-plugin-pages';
 import Inspect from 'vite-plugin-inspect';
 import Components from 'unplugin-vue-components/vite';
-import Markdown from 'vite-plugin-vue-markdown';
+import Markdown from 'unplugin-vue-markdown/vite';
 import Vue from '@vitejs/plugin-vue';
-import Shiki from 'markdown-it-shiki';
 import SvgLoader from 'vite-svg-loader';
 import matter from 'gray-matter';
 import AutoImport from 'unplugin-auto-import/vite';
 import Attrs from 'markdown-it-attrs';
 import anchor from 'markdown-it-anchor';
 import LinkAttributes from 'markdown-it-link-attributes';
+import { bundledLanguages, getHighlighter } from 'shikiji';
 
-import { slugify } from './src/slugify';
+import { slugify } from './src/helpers/slugify';
 
 const isDev = process.env.NODE_ENV !== 'production';
+
+const mocha = JSON.parse(fs.readFileSync('./catppuccin-mocha.json', 'utf-8'));
+const latte = JSON.parse(fs.readFileSync('./catppuccin-latte.json', 'utf-8'));
+
+const promises: Promise<any>[] = [];
 
 export const aliases = {
     '@': resolve(__dirname, './src'),
@@ -24,9 +29,6 @@ export const aliases = {
     '@/pages': resolve(__dirname, './pages'),
     '@/styles': resolve(__dirname, './src/styles'),
 };
-
-const nightOwlDark = '../../../../../../Night-Owl-color-theme';
-const nightOwlLight = '../../../../../../Night-Owl-Light-color-theme';
 
 export default defineConfig({
     resolve: {
@@ -53,16 +55,17 @@ export default defineConfig({
             include: [/\.vue$/, /\.md$/],
         }),
 
-        SvgLoader(),
-
         Pages({
             extensions: ['vue', 'md'],
             pagesDir: 'pages',
             extendRoute(route) {
                 const path = resolve(__dirname, route.component.slice(1));
-                const md = fs.readFileSync(path, 'utf-8');
-                const { data } = matter(md);
-                route.meta = Object.assign(route.meta || {}, { frontmatter: data });
+
+                if (path.endsWith('.md')) {
+                    const md = fs.readFileSync(path, 'utf-8');
+                    const { data } = matter(md);
+                    route.meta = Object.assign(route.meta || {}, { frontmatter: data });
+                }
 
                 return route;
             },
@@ -72,30 +75,46 @@ export default defineConfig({
             wrapperComponent: 'page',
             wrapperClasses: 'docs-content relative',
             headEnabled: true,
+            exportFrontmatter: false,
+            exposeFrontmatter: false,
+            exposeExcerpt: false,
             markdownItOptions: {
                 html: true,
                 quotes: '""\'\''
             },
-            markdownItSetup(md) {
-                md.use(Shiki, {
-                    theme: {
-                        light: nightOwlLight,
-                        dark: nightOwlDark,
-                    },
-                })
+            async markdownItSetup(md) {
+                const shiki = await getHighlighter({
+                    themes: [latte, mocha],
+                    langs: Object.keys(bundledLanguages) as any,
+                });
+
+                md.use((markdown) => {
+                    markdown.options.highlight = (code, lang) => {
+                        return shiki.codeToHtml(code, {
+                            lang,
+                            themes: {
+                                light: latte,
+                                dark: mocha,
+                            },
+                        });
+                    }
+                });
+
                 md.use(LinkAttributes, {
                     pattern: /^https?:/,
                     attrs: {
                         target: '_blank',
                         rel: 'noopener'
                     }
-                })
+                });
+
                 md.use(anchor, {
                     slugify,
                     tabIndex: false,
                     level: [1, 2, 3],
-                })
-                md.use(Attrs)
+                });
+
+                md.use(Attrs);
             },
 
             frontmatterPreprocess(frontmatter, options, id, defaults) {
@@ -118,18 +137,26 @@ export default defineConfig({
                 '@vueuse/core',
                 '@vueuse/head',
             ],
-            dts: 'src/auto-imports.d.ts',
         }),
 
         Components({
             extensions: ['vue', 'md'],
-            dts: 'src/components.d.ts',
+            dts: true,
             include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         }),
 
         Inspect({
-            enabled: !isDev ? true : false,
+            enabled: !isDev,
         }),
+
+        SvgLoader(),
+
+        {
+            name: 'await',
+            async closeBundle() {
+                await Promise.all(promises)
+            },
+        },
     ],
 
     server: {
