@@ -239,14 +239,14 @@ table {
     &:after {
         content: '';
         position: absolute;
-        height: 2rem;
+        height: 1.5rem;
         width: 100%;
         background-color: darken($dark, 2%);
     }
 
     &:before {
-        top: -2rem;
-        left: -.5px;
+        top: -1.5rem;
+        left: 0;
         border-top-left-radius: .5rem;
         border-top-right-radius: .5rem;
         border-top: 1px solid rgba($light, .10);
@@ -255,8 +255,8 @@ table {
     }
 
     &:after {
-        bottom: -2rem;
-        left: -0.5px;
+        bottom: -1.5rem;
+        left: 0;
         border-bottom-left-radius: .5rem;
         border-bottom-right-radius: .5rem;
         border-bottom: 1px solid rgba($light, .10);
