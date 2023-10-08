@@ -1,20 +1,25 @@
 <script setup lang="ts">
-defineProps<{
-    url: string,
-    media: string,
-    short: string,
+import { computed } from 'vue';
+
+const props = defineProps<{
+    url: string;
+    media: string;
 }>();
+
+const short = computed(() => {
+    return props.url.slice(8);
+});
 </script>
 
 <template>
-    <a class="social-link" :href="url" :title="media" rel="noopener" target="_blank">
+    <a class="social-link" :href="props.url" :title="props.media" rel="noopener" target="_blank">
         <div class="social-box">
             <div class="social-icon">
                 <slot />
             </div>
             <div class="social-info">
-                <div class="social-name">{{media}}</div>
-                <div class="social-short">{{short}}</div>
+                <div class="social-name">{{ props.media }}</div>
+                <div class="social-short">{{ short }}</div>
             </div>
         </div>
     </a>
@@ -27,7 +32,7 @@ defineProps<{
 .social-link {
     @include hover-state() {
         .social-box {
-            background-color: #20212b;
+            background-color: $darker;
         }
     }
 }
@@ -93,6 +98,7 @@ defineProps<{
     }
 }
 </style>
+
 <style lang="scss">
 .social-link {
     grid-column: span 12;
