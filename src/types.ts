@@ -62,4 +62,4 @@ export type TwitchGame = {
     name: string;
     box_art_url: string;
     igcb_id: string | number;
-}
+};

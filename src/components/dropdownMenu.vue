@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import DropdownIcon from '@/icons/dropdown.svg';
 
 const props = defineProps<{

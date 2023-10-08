@@ -13,10 +13,10 @@
 
 <style lang="scss" scoped>
 *, *:before, *:after {
-	border: 0;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
@@ -47,7 +47,7 @@ body {
 }
 
 span {
-	display: inline-block;
+    display: inline-block;
 }
 
 .code-area > span {
@@ -100,17 +100,17 @@ span {
 }
 
 .arm {
-	animation: arm var(--dur) linear infinite;
-	transform-origin: 25% 25%;
+    animation: arm var(--dur) linear infinite;
+    transform-origin: 25% 25%;
 }
 
 .throw {
-	animation: throw var(--dur) linear infinite;
+    animation: throw var(--dur) linear infinite;
 }
 
 .table {
-	animation: table var(--dur) linear infinite;
-	transform-origin: -33% 50%;
+    animation: table var(--dur) linear infinite;
+    transform-origin: -33% 50%;
 }
 
 .descr {
@@ -124,33 +124,32 @@ span {
 }
 
 @keyframes arm {
-	from {
+    from {
         transform: rotate(90deg);
     }
-	12.5%,
+    12.5%,
     to {
         transform: rotate(0deg);
     }
 }
 
 @keyframes throw {
-	from {
+    from {
         opacity: 0;
     }
-	37.5%,
+    37.5%,
     to {
         opacity: 1;
     }
 }
 
 @keyframes table {
-	from {
+    from {
         transform: rotate(-180deg);
     }
-	37.5%,
+    37.5%,
     to {
         transform: rotate(0);
     }
 }
 </style>
-

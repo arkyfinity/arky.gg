@@ -1,9 +1,5 @@
-<script lang="ts" setup>
-//
-</script>
-
 <template>
-    <div class="factBox">
+    <div class="fact-box">
         <slot />
     </div>
 </template>
@@ -11,7 +7,7 @@
 <style lang="scss" scoped>
 @import '@/styles/variables';
 
-.factBox {
+.fact-box {
     padding: 1rem;
     background-color: rgba($purple, .55);
     border-radius: .5rem;
@@ -32,7 +28,7 @@
 </style>
 
 <style lang="scss">
-.factBox {
+.fact-box {
     p {
         margin-top: 0;
 
