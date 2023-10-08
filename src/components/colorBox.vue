@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { ColorBox } from '@/types';
 
 const props = defineProps<{
-    name: string,
-    hex: string,
+    name: string;
+    hex: string;
 }>();
 
 const color = computed((): ColorBox => {
@@ -21,20 +22,20 @@ const calculatedColor = computed((hex: string): number[] | string => {
     let computedY: number = 0;
     let computedK: number = 0;
 
-    let r: number = parseInt(hex.slice(0,2), 16);
-    let g: number = parseInt(hex.slice(2,4), 16);
-    let b: number = parseInt(hex.slice(4,6), 16);
+    const r: number = parseInt(hex.slice(0, 2), 16);
+    const g: number = parseInt(hex.slice(2, 4), 16);
+    const b: number = parseInt(hex.slice(4, 6), 16);
 
     if (r === 0 && g === 0 && b === 0) {
         computedK = 1;
-        return [0,0,0,1];
+        return [0, 0, 0, 1];
     }
 
     computedC = 1 - (r / 255);
     computedM = 1 - (g / 255);
     computedY = 1 - (b / 255);
 
-    let minCMY = Math.min(computedC, Math.min(computedM, computedY));
+    const minCMY = Math.min(computedC, Math.min(computedM, computedY));
 
     computedC = Math.round((computedC - minCMY) / (1 - minCMY) * 100);
     computedM = Math.round((computedM - minCMY) / (1 - minCMY) * 100);
@@ -47,10 +48,10 @@ const calculatedColor = computed((hex: string): number[] | string => {
 
 <template>
     <div class="color-box" :style="{backgroundColor: `#${color.hex}`}">
-        <div class="color-name">{{color.name}}</div>
+        <div class="color-name">{{ color.name }}</div>
         <div class="color-info">
-            <div class="color-info-text">#{{color.hex.toUpperCase()}}</div>
-            <div class="color-info-text">CMYK {{calculatedColor}}</div>
+            <div class="color-info-text">#{{ color.hex.toUpperCase() }}</div>
+            <div class="color-info-text">CMYK {{ calculatedColor }}</div>
         </div>
     </div>
 </template>
