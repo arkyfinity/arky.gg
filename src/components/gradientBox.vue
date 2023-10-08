@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { Color } from '@/types';
 
 const props = defineProps<{
-    name: string,
-    from: string,
-    to: string,
-    angle: string,
+    name: string;
+    from: string;
+    to: string;
+    angle: string;
 }>();
 
 const color = computed((): Color => {
@@ -18,17 +19,17 @@ const color = computed((): Color => {
 });
 
 const linearGradient = computed((): string => {
-    return `linear-gradient(${props.angle}deg, #${props.from}, #${props.to})`
+    return `linear-gradient(${props.angle}deg, #${props.from}, #${props.to})`;
 });
 </script>
 
 <template>
     <div class="gradient-box" :style="{background: linearGradient }">
-        <div class="color-name">{{color.name}}</div>
+        <div class="color-name">{{ color.name }}</div>
         <div class="color-info">
-            <div class="color-info-text">From: #{{color.from.toUpperCase()}}</div>
-            <div class="color-info-text">To: #{{color.to.toUpperCase()}}</div>
-            <div class="color-info-text">Angle: {{color.angle}}deg</div>
+            <div class="color-info-text">From: #{{ color.from.toUpperCase() }}</div>
+            <div class="color-info-text">To: #{{ color.to.toUpperCase() }}</div>
+            <div class="color-info-text">Angle: {{ color.angle }}deg</div>
         </div>
     </div>
 </template>
