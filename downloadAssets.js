@@ -1,13 +1,13 @@
 import https from 'https';
 import fs from 'fs';
 
-const darkTheme = fs.createWriteStream('Night-Owl-color-theme.json');
-const lightTheme = fs.createWriteStream('Night-Owl-Light-color-theme.json');
+const darkTheme = fs.createWriteStream('catppuccin-mocha.json');
+const lightTheme = fs.createWriteStream('catppuccin-latte.json');
 
-https.get('https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/master/themes/Night%20Owl-color-theme.json', (res) => {
+https.get('https://raw.githubusercontent.com/catppuccin/vscode/compiled/mocha.json', (res) => {
     res.pipe(darkTheme);
 });
 
-https.get('https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/master/themes/Night%20Owl-Light-color-theme.json', (res) => {
+https.get('https://raw.githubusercontent.com/catppuccin/vscode/compiled/latte.json', (res) => {
     res.pipe(lightTheme);
 });
