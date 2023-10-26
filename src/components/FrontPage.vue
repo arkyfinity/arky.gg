@@ -50,7 +50,7 @@ svg.big-logo {
     min-height: 180px;
 
     @media (min-width: 992px) {
-        max-width: 570px;
+        max-width: 569px;
         min-height: 270px;
     }
 }
