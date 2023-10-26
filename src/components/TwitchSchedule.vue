@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
+import GameImage from './GameImage.vue';
 import twitchapi from '@/helpers/twitchapi';
 import { ScheduleItem } from '@/types';
 import {
@@ -57,6 +58,11 @@ const formattedTimezone = (dateString: string | Date): string => {
     return formatTimezone(dateString);
 };
 
+const categoryName = (item: any) => {
+    if (item.category !== null) return item.category.name;
+    else return 'Unspecified';
+};
+
 onMounted(() => {
     fetchSchedule();
 });
@@ -72,11 +78,11 @@ onMounted(() => {
             </div>
             <div class="calendar-item-content">
                 <div class="calendar-item-image">
-                    <game-image :game-title="item.category.name" />
+                    <GameImage v-if="item.category !== null" :game-title="item.category.name" />
                 </div>
                 <div class="calendar-item-info">
                     <div class="calendar-item-info-title">{{ item.title }}</div>
-                    <div class="calendar-item-info-subtitle">{{ item.category.name }}</div>
+                    <div class="calendar-item-info-subtitle">{{ categoryName(item) }}</div>
                     <div class="calendar-item-info-time">
                         {{ formattedTime(item.start_time) }} - {{ formattedTime(item.end_time) }} <span class="calendar-item-info-time-timezone">{{ formattedTimezone(item.start_time) }}</span>
                     </div>

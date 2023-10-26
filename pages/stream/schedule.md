@@ -5,4 +5,4 @@ description: Arky's stream schedule
 
 # Stream schedule
 
-<TwitchSchedule :stream="true" />
+<TwitchSchedule :number-of-days="10" :stream="true" />
