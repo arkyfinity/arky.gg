@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import SocialBox from './SocialBox.vue';
-import Twitch from '@/icons/social-icon-twitch.svg';
-import Twitter from '@/icons/social-icon-twitter.svg';
-import Tiktok from '@/icons/social-icon-tiktok.svg';
-import YouTube from '@/icons/social-icon-youtube.svg';
-import Discord from '@/icons/social-icon-discord.svg';
-import Instagram from '@/icons/social-icon-instagram.svg';
-import GitHub from '@/icons/social-icon-github.svg';
+import Twitch from '@/icons/social-icon-twitch.svg?component';
+import Twitter from '@/icons/social-icon-twitter.svg?skipsvgo';
+import Tiktok from '@/icons/social-icon-tiktok.svg?component';
+import YouTube from '@/icons/social-icon-youtube.svg?component';
+import Discord from '@/icons/social-icon-discord.svg?component';
+import Instagram from '@/icons/social-icon-instagram.svg?component';
+import GitHub from '@/icons/social-icon-github.svg?component';
 </script>
 
 <template>
