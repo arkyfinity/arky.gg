@@ -4,10 +4,6 @@ import { Command } from '@/types';
 
 const commands = ref<Command[]>([
     {
-        command: '!arcdps',
-        description: 'Link to my tutorial on how to install ArcDPS',
-    },
-    {
         command: '!backseat',
         description: 'Backseat gaming discouragement',
     },
@@ -18,10 +14,6 @@ const commands = ref<Command[]>([
     {
         command: '!builds',
         description: 'List of builds I\'m currently running',
-    },
-    {
-        command: '!buygw2',
-        description: 'A way to purchase Guild Wars 2 by using my affiliate link',
     },
     {
         command: '!cat',
@@ -36,12 +28,12 @@ const commands = ref<Command[]>([
         description: 'A link to this list. The recursion...',
     },
     {
-        command: '!d912pxy',
-        description: 'Link to my tutorial on how to chainload d912pxy and ArcDPS',
-    },
-    {
         command: '!discord',
         description: 'Link to my Discord',
+    },
+    {
+        command: '!extralife',
+        description: 'Link to my Extra Life page',
     },
     {
         command: '!gw2wiki',
