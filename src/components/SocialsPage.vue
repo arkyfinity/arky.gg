@@ -27,7 +27,7 @@ import GitHub from '@/icons/social-icon-github.svg?component';
             <YouTube />
         </SocialBox>
 
-        <SocialBox media="Discord" url="https://discord.gg/sPgbNp7">
+        <SocialBox media="Discord" url="https://discord.gg/HsnahqyUuu">
             <Discord />
         </SocialBox>
 
