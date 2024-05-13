@@ -24,11 +24,13 @@ export type Color = {
 };
 
 export type Build = {
-    name: string;
-    elitespec: string;
-    link: string;
-    shorturl?: string;
-    tag: string;
+    attributes: {
+        name: string;
+        elitespec: string;
+        link: string;
+        shorturl?: string;
+        tag: string;
+    };
 };
 
 export type ColorBox = {
