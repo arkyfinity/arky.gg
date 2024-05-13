@@ -1,4 +1,5 @@
-import { basename, resolve, join } from 'path';
+import { basename, resolve, join } from 'node:path';
+import crypto from 'node:crypto';
 import { defineConfig } from 'vite';
 import fs from 'fs-extra';
 import Pages from 'vite-plugin-pages';
@@ -18,6 +19,8 @@ import { slugify } from './src/helpers/slugify';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
+const cspNonce = crypto.randomBytes(32).toString('base64');
+
 const mocha = JSON.parse(fs.readFileSync('./catppuccin-mocha.json', 'utf-8'));
 const latte = JSON.parse(fs.readFileSync('./catppuccin-latte.json', 'utf-8'));
 
@@ -34,11 +37,11 @@ export default defineConfig({
     resolve: {
         alias: [
             { find: /~(.+)/, replacement: join(process.cwd(), './node_modules/$1') },
-            { find: /@\//, replacement: join(process.cwd(), './src') + '/' },
-            { find: /@\/icons/, replacement: join(process.cwd(), './src/icons') + '/' },
-            { find: /@\/pages/, replacement: join(process.cwd(), './pages') + '/' },
-            { find: /@\/styles/, replacement: join(process.cwd(), './src/styles') + '/' },
-        ]
+            { find: /@\//, replacement: `${join(process.cwd(), './src')}/` },
+            { find: /@\/icons/, replacement: `${join(process.cwd(), './src/icons')}/` },
+            { find: /@\/pages/, replacement: `${join(process.cwd(), './pages')}/` },
+            { find: /@\/styles/, replacement: `${join(process.cwd(), './src/styles')}/` },
+        ],
     },
 
     optimizeDeps: {
@@ -80,7 +83,7 @@ export default defineConfig({
             exposeExcerpt: false,
             markdownItOptions: {
                 html: true,
-                quotes: '""\'\''
+                quotes: '""\'\'',
             },
             async markdownItSetup(md) {
                 const shiki = await getHighlighter({
@@ -97,15 +100,15 @@ export default defineConfig({
                                 dark: mocha,
                             },
                         });
-                    }
+                    };
                 });
 
                 md.use(LinkAttributes, {
                     pattern: /^https?:/,
                     attrs: {
                         target: '_blank',
-                        rel: 'noopener'
-                    }
+                        rel: 'noopener',
+                    },
                 });
 
                 md.use(anchor, {
@@ -122,6 +125,7 @@ export default defineConfig({
                     if (!id.endsWith('.md')) return;
 
                     const route = basename(id, '.md');
+                    // eslint-disable-next-line no-useless-return
                     if (route === 'index' || frontmatter.image || !frontmatter.title) return;
                 })();
 
@@ -154,7 +158,7 @@ export default defineConfig({
         {
             name: 'await',
             async closeBundle() {
-                await Promise.all(promises)
+                await Promise.all(promises);
             },
         },
     ],
@@ -162,12 +166,15 @@ export default defineConfig({
     server: {
         fs: {
             strict: true,
-        }
+        },
     },
 
-    // @ts-ignore
     ssgOptions: {
         script: 'async',
         formatting: 'minify',
+    },
+
+    html: {
+        cspNonce: `nonce-${cspNonce}`,
     },
 });
