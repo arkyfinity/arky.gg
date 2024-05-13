@@ -5,10 +5,10 @@ import { Build } from '@/types';
 const buildList = ref<Build[] | null>(null);
 
 const fetchData = () => {
-    fetch('https://api.arky.dk/builds')
+    fetch('https://api.arky.gg/api/builds')
         .then((res) => res.json())
-        .then((data: Build[]) => {
-            buildList.value = data;
+        .then((data: any) => {
+            buildList.value = data.data;
         })
         .catch((error) => {
             // eslint-disable-next-line no-console
@@ -32,6 +32,9 @@ const buildImage = (spec: string) => {
             case 'scourge':
                 image = 'https://wiki.guildwars2.com/images/8/80/Scourge_icon_white.png';
                 break;
+            case 'mirage':
+                image = 'https://wiki.guildwars2.com/images/8/80/Mirage_icon_white.png';
+                break;
             default:
                 image = 'https://wiki.guildwars2.com/images/a/a9/Any_tango_icon_48px.png';
         }
@@ -41,11 +44,11 @@ const buildImage = (spec: string) => {
 };
 
 const wvwBuilds = computed(() => {
-    return buildList.value?.filter((build: Build) => build.tag === 'WvW');
+    return buildList.value?.filter((build: Build) => build.attributes.tag === 'WvW');
 });
 
 const pvpBuilds = computed(() => {
-    return buildList.value?.filter((build: Build) => build.tag === 'PvP');
+    return buildList.value?.filter((build: Build) => build.attributes.tag === 'PvP');
 });
 
 onMounted(() => {
@@ -56,26 +59,26 @@ onMounted(() => {
 <template>
     <h3 class="builds-header mt-2">WvW builds</h3>
     <ul class="builds">
-        <li v-for="build in wvwBuilds" :key="build.name">
+        <li v-for="build in wvwBuilds" :key="build.attributes.name">
             <div class="builds-icon">
-                <img :src="buildImage(build.elitespec)" :alt="build.name" />
+                <img :src="buildImage(build.attributes.elitespec)" :alt="build.attributes.name" />
             </div>
             <div class="builds-info">
-                <div class="builds-name">{{ build.name }}</div>
-                <div class="builds-link">Link: <a :href="build.link" target="_blank" rel="noopener">GW2Skills</a></div>
+                <div class="builds-name">{{ build.attributes.name }}</div>
+                <div class="builds-link">Link: <a :href="build.attributes.link" target="_blank" rel="noopener">GW2Skills</a></div>
             </div>
         </li>
     </ul>
 
     <h3 class="builds-header">PvP builds</h3>
     <ul class="builds mb-0">
-        <li v-for="build in pvpBuilds" :key="build.name">
+        <li v-for="build in pvpBuilds" :key="build.attributes.name">
             <div class="builds-icon">
-                <img :src="buildImage(build.elitespec)" :alt="build.name" />
+                <img :src="buildImage(build.attributes.elitespec)" :alt="build.attributes.name" />
             </div>
             <div class="builds-info">
-                <div class="builds-name">{{ build.name }}</div>
-                <div class="builds-link">Link: <a :href="build.link" target="_blank" rel="noopener">GW2Skills</a></div>
+                <div class="builds-name">{{ build.attributes.name }}</div>
+                <div class="builds-link">Link: <a :href="build.attributes.link" target="_blank" rel="noopener">GW2Skills</a></div>
             </div>
         </li>
     </ul>
