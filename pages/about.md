@@ -8,7 +8,7 @@ description: Short intro about Arky
 <div class="cols">
 <div class="col-left">
 
-Hi, I'm Arky, a Danish potato making content about competitive game modes in MMORPGs. I've been displaying [Guild Wars 2](https://guildwars2.com) WvW* and PvP** for years, and will be displaying competitive game play in [Ashes of Creation](https://ashesofcreation) during alphas, betas, and once released. I also try to throw a dash of survival games in between, with [Valheim](https://valheimgame.com) and [Icarus](https://surviveicarus.com) as a couple of name-drops.
+Hi, I'm Arky, a Danish potato making content about competitive game modes in MMORPGs. I've been displaying [Guild Wars 2](https://guildwars2.com) WvW* and PvP** for years, and will be displaying competitive game play in [Ashes of Creation](https://ashesofcreation) during alphas, betas, and once released. I also try to throw in a dash of FPS and survival games in between.
 
 I stream for fun and giggles. Building a [community](/socials) and having a good time is much more important to me than making money on content. That said, I do appreciate every single cent donated or gifted, and it will all go towards improving the stream quality, may it be a better setup or something simple as new alerts and badges.
 
